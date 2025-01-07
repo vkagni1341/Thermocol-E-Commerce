@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermocol E-Commerce</title>
+     
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .navbar {
+            background-color: #343a40; /* Light black */
+        }
+        .navbar-nav .nav-link {
+            color: #ffffff;
+        }
+        .promo-banner {
+            background-color: #ffdd57; /* Highlight color for unique banner */
+            color: #000000;
+            padding: 30px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 40px; /* Space below the promo banner */
+        }
+        .featured-products {
+            padding: 20px;
+        }
+        .featured-products .product {
+            text-align: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .featured-products .product:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .featured-products .product img {
+            width: 100%;
+            height: 200px; /* Fixed height for uniform image size */
+            object-fit: cover; /* Ensures images cover the area */
+            border-radius: 8px;
+        }
+        .featured-products .product p {
+            font-weight: bold; /* Makes product titles bold */
+            margin: 10px 0 0;
+        }
+        .header-banner {
+            background-color: #f8f9fa; /* Light background color */
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header-banner .company-name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0;
+        }
+        .notification-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .notification-icon button {
+            font-size: 1.5rem;
+            background-color: #ffffff;
+            border: 2px solid #343a40;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .notification-panel {
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 250px;
+            z-index: 1000;
+            padding: 10px;
+        }
+        .notification-panel h3 {
+            margin: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .notification-panel ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .notification-panel ul li {
+            padding: 5px 0;
+        }
+        footer {
+            background-color: #f8f9fa; /* Light background color */
+            padding: 10px;
+            text-align: center;
+        }
+        footer a {
+            margin: 0 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .spacer {
+            margin-bottom: 60px; /* Adjusted space after Featured Products */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Thermocol E-Commerce</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="checkout.html">Checkout</a></li>
+                        <li class="nav-item"><a class="nav-link" href="confirmation.html">Order Confirmation</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container header-banner">
+            <div class="company-name">The Card Board Company</div>
+        </div>
+        <div class="notification-icon">
+            <button id="notificationButton">🔔</button>
+            <div id="notificationPanel" class="notification-panel">
+                <h3>Notifications</h3>
+                <ul id="notificationList">
+                    <!-- Notifications will be dynamically inserted here -->
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="promo-banner">
+        <h2>Special Promotion</h2>
+        <p>Get up to 50% off on selected items!</p>
+    </section>
+
+    <section class="featured-products">
+        <h2>Featured Products</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="product">
+                        <img src="https://www.ecocushionpaper.com/wp-content/uploads/2023/03/MG_7061.jpg" alt="Product 1">
+                        <p>Package Thermocol 0.65MM Size </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product">
+                        <img src="https://www.ecocushionpaper.com/wp-content/uploads/2023/03/DSC_9913.jpg" alt="Product 2">
+                        <p>Desiging Thermocol 0.55 MM</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product">
+                        <img src="https://www.ecocushionpaper.com/wp-content/uploads/2023/03/DSC_9748.jpg" alt="Product 3">
+                        <p>Special Work Thermocol 0.35MM</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product">
+                        <img src="https://5.imimg.com/data5/GC/LS/EY/SELLER-6426840/thermocol-sheets-d-12-500x500.png" alt="Product 4">
+                        <p>Project Work Thermocol 0.95MM</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product">
+                        <img src="https://5.imimg.com/data5/FU/ES/MY-57638343/packaging-rolls.jpg" alt="Product 5">
+                        <p>Sheet From of Thermocol 0.85MM</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product">
+                        <img src="https://5.imimg.com/data5/LU/OV/MY-42143642/2-mm-protection-bubble-roll-250x250.jpg" alt="Product 6">
+                        <p>Package Work Thermocol (Water Proof) 0.25MM</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product">
+                        <img src="https://www.upack.in/media/catalog/product/cache/1a5cb7b56cc703e17bb7df121f1b26e5/t/h/thermo_2.jpg" alt="Product 7">
+                        <p>ColourFul Thermocol Bean's 0.15MM</p>
+                    </div>
+                </div>
+                <!-- Additional Card Board Products -->
+                <div class="col-md-4 ">
+                    <div class="product">
+                        <img src="https://5.imimg.com/data5/QD/ZB/SS/SELLER-92658870/cardboard-500x500.jpg" alt="Additional Product 1">
+                        <p>Card Board Sheet 1.0MM</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfmfDn60olDCOFSCtZgCPSZYowRaVRemcStA&usqp=CAU" alt="Additional Product 2">
+                        <p>Card Board Packaging Box</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product">
+                        <img src="https://cpimg.tistatic.com/04361810/b/4/Thermocol-Sheet.jpg" alt="Additional Product 3">
+                        <p>Thermocol Block'S </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnTknrw6R-6K5UbO3csKe-o9u0nVU9kqstROLEHj-pJDQ8SP6RBiruV_nEVDzKnSS_GCw&usqp=CAU" alt="Additional Product 4">
+                        <p>Packaging Brown Role </p>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Follow us on:</p>
+        <a href="" target="_blank">Facebook</a> |
+        <a href="#" target="_blank">Twitter</a> |
+        <a href="#" target="_blank">Instagram</a>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('notificationButton').addEventListener('click', function() {
+            var panel = document.getElementById('notificationPanel');
+            panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+        });
+
+       
+    </script>
+</body>
+</html>
+
+
