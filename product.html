@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Thermocol E-Commerce</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom Styles */
+        header {
+            background-color: #87ceeb; /* Sky blue background */
+            color: #ffffff;
+            border-bottom: 2px solid black; /* Black border */
+        }
+        .navbar {
+            background-color: #495057; /* Darker navbar */
+        }
+        .navbar-brand, .nav-link {
+            color: #ffffff;
+        }
+        .navbar-brand:hover, .nav-link:hover {
+            color: #cccccc;
+        }
+        .search-sort {
+            margin: 20px 0;
+            text-align: center; /* Center alignment */
+        }
+        .search-sort .form-control {
+            margin-right: 10px;
+            display: inline-block;
+            width: auto;
+        }
+        .filters {
+            margin-bottom: 20px;
+        }
+        .filters ul {
+            padding-left: 0;
+            list-style: none;
+        }
+        .filters ul li {
+            margin-bottom: 10px;
+        }
+        .filters ul li a {
+            text-decoration: none;
+        }
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-card .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        .btn-cart {
+            margin-top: auto;
+        }
+        .product:hover {
+            background-color: #f8f9fa;
+            transition: background-color 0.3s ease;
+        }
+        .card-title {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header class="py-3">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="#">Thermocol E-Commerce</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="checkout.html">Checkout</a></li>
+                        <li class="nav-item"><a class="nav-link" href="confirmation.html">Order Confirmation</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="search-sort container my-4">
+        <div class="row justify-content-center">
+            <div class="col-md-5 mb-3">
+                <input type="text" class="form-control" id="searchBar" placeholder="Search for Thermocol Item...">
+            </div>
+            <div class="col-md-3 mb-3">
+                <select class="form-control" id="sortOptions">
+                    <option value="price">Sort by Price</option>
+                    <option value="popularity">Sort by Popularity</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <section class="filters container mb-4">
+        <h2>Categories</h2>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="#" data-filter="all">All</a></li>
+            <li class="list-group-item"><a href="#" data-filter="packaging">Package</a></li>
+            <li class="list-group-item"><a href="#" data-filter="designing">Designing</a></li>
+            <li class="list-group-item"><a href="#" data-filter="special">Special Work</a></li>
+            <li class="list-group-item"><a href="#" data-filter="project">Project Work</a></li>
+        </ul>
+    </section>
+
+    <section class="product-grid container">
+        <div class="row" id="productList">
+            <!-- Add your product cards here -->
+            <!-- Example product card -->
+            <div class="col-md-4 product-card" data-category="packaging" data-price="7.25" data-popularity="4">
+                <div class="card">
+                    <img src="https://www.ecocushionpaper.com/wp-content/uploads/2023/03/MG_7061.jpg" class="card-img-top" alt="package">
+                    <div class="card-body">
+                        <h5 class="card-title">Net Package Work (Brown)</h5>
+                        <p class="card-text">$7.25</p>
+                        <button class="btn btn-primary btn-cart" onclick="addToCart({ id: 1, name: 'Net Package Work (Brown)', price: 7.25 })">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+<div class="col-md-4 product-card" data-category="special" data-price="9.75" data-popularity="4">
+    <div class="card">
+        <img src="https://www.ecocushionpaper.com/wp-content/uploads/2023/03/DSC_9748.jpg" class="card-img-top" alt="special">
+        <div class="card-body">
+            <h5 class="card-title">Special Work Thermocol(Brown) 0.35MM</h5>
+            <p class="card-text">$9.75</p>
+            <button class="btn btn-primary btn-cart" onclick="addToCart({ id: 2, name: 'Special Work Thermocol(Brown) ', price: 9.75 })">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 product-card" data-category="special" data-price="12.25" data-popularity="4">
+    <div class="card">
+        <img src="https://www.ecocushionpaper.com/wp-content/uploads/2023/03/DSC_9913.jpg" class="card-img-top" alt="special">
+        <div class="card-body">
+            <h5 class="card-title">Desiging Thermocol(Brown) 0.55 MM</h5>
+            <p class="card-text">$12.25</p>
+            <button class="btn btn-primary btn-cart" onclick="addToCart({ id: 3, name: 'Desiging Thermocol(Brown) ', price: 12.25 })">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 product-card" data-category="packaging" data-price="6.85" data-popularity="4">
+    <div class="card">
+        <img src="https://5.imimg.com/data5/FU/ES/MY-57638343/packaging-rolls.jpg" class="card-img-top" alt="package">
+        <div class="card-body">
+            <h5 class="card-title">Sheet From of Thermocol (White) 0.85MM</h5>
+            <p class="card-text">$6.85</p>
+            <button class="btn btn-primary btn-cart" onclick="addToCart({ id: 4, name: 'Sheet From of Thermocol (White)', price: 6.85 })">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 product-card" data-category="project" data-price="5.85" data-popularity="4">
+    <div class="card">
+        <img src="https://5.imimg.com/data5/GC/LS/EY/SELLER-6426840/thermocol-sheets-d-12-500x500.png" class="card-img-top" alt="project">
+        <div class="card-body">
+            <h5 class="card-title">Project Work Thermocol(White) 0.95MM</h5>
+            <p class="card-text">$5.85</p>
+            <button class="btn btn-primary btn-cart" onclick="addToCart({ id: 5, name: 'Project Work Thermocol(White) ', price: 5.85 })">Add to Cart</button>
+        </div>
+    </div>
+</div>
+<div class="col-md-4 product-card" data-category="packaging" data-price="8.35" data-popularity="4">
+    <div class="card">
+        <img src="https://5.imimg.com/data5/LU/OV/MY-42143642/2-mm-protection-bubble-roll-250x250.jpg" class="card-img-top" alt="package">
+        <div class="card-body">
+            <h5 class="card-title">Package Work Thermocol (Water Proof) 0.25MM</h5>
+            <p class="card-text">$8.35</p>
+            <button class="btn btn-primary btn-cart" onclick="addToCart({ id: 6, name: 'Package Work Thermocol (Water Proof) ', price: 8.35 })">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 product-card" data-category="designing" data-price="4.25" data-popularity="4">
+    <div class="card">
+        <img src="https://www.upack.in/media/catalog/product/cache/1a5cb7b56cc703e17bb7df121f1b26e5/t/h/thermo_2.jpg" class="card-img-top" alt="designing">
+        <div class="card-body">
+            <h5 class="card-title">ColourFul Thermocol Bean's 0.15MM</h5>
+            <p class="card-text">$4.25</p>
+            <button class="btn btn-primary btn-cart" onclick="addToCart({ id: 7, name: 'ColourFul Thermocol Bean', price: 4.25 })">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 product-card" data-category="project" data-price="5.85" data-popularity="4">
+    <div class="card">
+        <img src="https://5.imimg.com/data5/QD/ZB/SS/SELLER-92658870/cardboard-500x500.jpg" class="card-img-top" alt="project">
+        <div class="card-body">
+            <h5 class="card-title">Card Board Sheet 1.0MM</h5>
+            <p class="card-text">$5.85</p>
+            <button class="btn btn-primary btn-cart" onclick="addToCart({ id: 8, name: 'CCard Board Sheet', price: 5.85 })">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 product-card" data-category="packaging" data-price="8.95" data-popularity="4">
+    <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfmfDn60olDCOFSCtZgCPSZYowRaVRemcStA&usqp=CAU" class="card-img-top" alt="package">
+        <div class="card-body">
+            <h5 class="card-title">Card Board Packaging Box</h5>
+            <p class="card-text">$8.95</p>
+            <button class="btn btn-primary btn-cart" onclick="addToCart({ id: 9, name: 'Card Board Packaging Box', price: 8.95 })">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 product-card" data-category="project" data-price="13.25" data-popularity="4">
+    <div class="card">
+        <img src="https://cpimg.tistatic.com/04361810/b/4/Thermocol-Sheet.jpg" class="card-img-top" alt="project">
+        <div class="card-body">
+            <h5 class="card-title">Thermocol Block'S (White)</h5>
+            <p class="card-text">$13.25</p>
+            <button class="btn btn-primary btn-cart" onclick="addToCart({ id: 10, name: 'Thermocol Block ', price: 13.25 })">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 product-card" data-category="packaging" data-price="7.85" data-popularity="4">
+    <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnTknrw6R-6K5UbO3csKe-o9u0nVU9kqstROLEHj-pJDQ8SP6RBiruV_nEVDzKnSS_GCw&usqp=CAU" class="card-img-top" alt="package">
+        <div class="card-body">
+            <h5 class="card-title">Packaging Role (Brown)</h5>
+            <p class="card-text">$7.85</p>
+            <button class="btn btn-primary btn-cart" onclick="addToCart({ id: 11, name: 'Packaging Role ', price: 7.85 })">Add to Cart</button>
+        </div>
+    </div>
+</div>
+        
+            <!-- More product cards -->
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        let pc=0;
+        document.getElementById('searchBar').addEventListener('input', function() 
+        {
+             
+            const searchQuery = this.value.toLowerCase();
+            const products = document.querySelectorAll('.product-card');
+            pc++;
+            products.forEach(function(product) {
+                const title = product.querySelector('.card-title').textContent.toLowerCase();
+                if (title.includes(searchQuery)) {
+                    product.style.display = '';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        });
+
+        document.getElementById('sortOptions').addEventListener('change', function() {
+            const sortBy = this.value;
+            const productList = document.getElementById('productList');
+            const products = Array.from(productList.children);
+            products.sort(function(a, b) {
+                const aValue = parseFloat(a.getAttribute(`data-${sortBy}`));
+                const bValue = parseFloat(b.getAttribute(`data-${sortBy}`));
+                return aValue - bValue;
+            });
+            products.forEach(function(product) {
+                productList.appendChild(product);
+            });
+        });
+
+        document.querySelectorAll('.filters a').forEach(function(filterLink) {
+            filterLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                const filter = this.getAttribute('data-filter');
+                const products = document.querySelectorAll('.product-card');
+                products.forEach(function(product) {
+                    if (filter === 'all' || product.getAttribute('data-category') === filter) {
+                        product.style.display = '';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        function addToCart(product) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingProductIndex = cart.findIndex(item => item.id === product.id);
+            if (existingProductIndex !== -1) {
+                cart[existingProductIndex].quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${product.name} added to cart`);
+        }
+    </script>
+</body>
+</html>
