@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Information - Thermocol E-Commerce</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        header {
+            background-color: #343a40; /* Dark theme */
+            color: #ffffff;
+            border-bottom: 2px solid black; /* Black border */
+            position: relative;
+        }
+        .back-button {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            color: #ffffff;
+            background-color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background-color: #343a40; /* Dark theme */
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            border-top: 2px solid black; /* Black border */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-dark text-light p-3">
+        <div class="container">
+            <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
+            <h1 class="text-center">Contact Information</h1>
+        </div>
+    </header>
+
+    <div class="container mt-4">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or inquiries, feel free to contact us using the form below or through the provided contact details.</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Contact Details</h3>
+                <address>
+                    <strong>Thermocol E-Commerce</strong><br>
+                    1234 Business Rd.<br>
+                    Suite 100<br>
+                    City, State, ZIP<br>
+                    <strong>Email:</strong> contact@thermocolecommerce.com<br>
+                    <strong>Phone:</strong> (123) 456-7890
+                </address>
+            </div>
+            <div class="col-md-6">
+                <h3>Inquire with Us</h3>
+                <form id="enquiryForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Thermocol E-Commerce. All rights reserved.</p>
+            <p id="currentDateTime"></p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Display current date and time in footer
+        const currentDateTime = new Date().toLocaleString();
+        document.getElementById('currentDateTime').textContent = `Date and Time: ${currentDateTime}`;
+    </script>
+</body>
+</html>
