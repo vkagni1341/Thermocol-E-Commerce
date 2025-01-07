@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - Thermocol E-Commerce</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        header {
+            background-color: #343a40; /* Dark theme */
+            color: #ffffff;
+            border-bottom: 2px solid black; /* Black border */
+            position: relative;
+        }
+        .back-button {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            color: #ffffff;
+            background-color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-dark text-light p-3">
+        <div class="container">
+            <button class="back-button" onclick="window.history.back()">Back</button>
+            <h1 class="text-center">Order Confirmation</h1>
+        </div>
+    </header>
+
+    <div class="container mt-4">
+        <h2>Your Order</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="cartTableBody">
+                
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-right"><strong>Grand Total</strong></td>
+                    <td id="grandTotal">$0.00</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <h2>Shipping Information</h2>
+        <div id="shippingInfo">
+           
+        </div>
+
+        <h2>Payment Information</h2>
+        <form id="paymentForm">
+            <div class="form-group">
+                <label for="cardNumber">Credit Card Number</label>
+                <input type="text" class="form-control" id="cardNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="expiration">Expiration Date</label>
+                <input type="text" class="form-control" id="expiration" placeholder="MM/YY" required>
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="text" class="form-control" id="cvv" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Pay Now</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartTableBody = document.getElementById('cartTableBody');
+            const grandTotalElement = document.getElementById('grandTotal');
+            const shippingInfoElement = document.getElementById('shippingInfo');
+            let grandTotal = 0;
+
+            cart.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td>${item.quantity}</td>
+                    <td>$${(item.price * item.quantity).toFixed(2)}</td>
+                `;
+                cartTableBody.appendChild(row);
+                grandTotal += item.price * item.quantity;
+            });
+
+            grandTotalElement.textContent = `$${grandTotal.toFixed(2)}`;
+
+            const shippingInfo = JSON.parse(localStorage.getItem('shippingInfo'));
+            if (shippingInfo) {
+                shippingInfoElement.innerHTML = `
+                    <p>Name: ${shippingInfo.name}</p>
+                    <p>Address: ${shippingInfo.address}</p>
+                    <p>City: ${shippingInfo.city}</p>
+                    <p>State: ${shippingInfo.state}</p>
+                    <p>Zip Code: ${shippingInfo.zip}</p>
+                `;
+            }
+
+            document.getElementById('paymentForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('Payment submitted!');
+                // Implement payment processing here
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
